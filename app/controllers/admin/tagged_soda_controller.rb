@@ -1,11 +1,11 @@
 module Admin
-  class TaggedPostsController < Admin::ApplicationController
+  class TaggedSodaController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
     # def index
     #   super
-    #   @resources = TaggedPost.all.paginate(10, params[:page])
+    #   @resources = TaggedSoda.all.paginate(10, params[:page])
     # end
 
     # Define a custom finder by overriding the `find_resource` method:

@@ -1,16 +1,16 @@
 module Admin
-  class SodasController < Admin::ApplicationController
+  class BottlersController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
     # def index
     #   super
-    #   @resources = Soda.all.paginate(10, params[:page])
+    #   @resources = Bottler.all.paginate(10, params[:page])
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Soda.find_by!(slug: param)
+    #   Bottler.find_by!(slug: param)
     # end
 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions

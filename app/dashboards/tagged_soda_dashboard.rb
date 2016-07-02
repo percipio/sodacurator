@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class TaggedPostDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -9,10 +9,10 @@ class TaggedPostDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     tag: Field::BelongsTo,
-    post: Field::BelongsTo,
+    soda: Field::BelongsTo,
     id: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -22,19 +22,19 @@ class TaggedPostDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :tag,
-    :post,
+    :soda,
     :id,
-    :created_at,
+    :created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :tag,
-    :post,
+    :soda,
     :id,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -42,13 +42,13 @@ class TaggedPostDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :tag,
-    :post,
+    :soda
   ].freeze
 
-  # Overwrite this method to customize how tagged posts are displayed
+  # Overwrite this method to customize how tagged sodas are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(tagged_post)
-  #   "TaggedPost ##{tagged_post.id}"
+  # def display_resource(tagged_soda)
+  #   "TaggedPost ##{tagged_soda.id}"
   # end
 end

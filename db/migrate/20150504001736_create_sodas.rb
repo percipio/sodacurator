@@ -4,7 +4,7 @@ class CreateSodas < ActiveRecord::Migration
       t.string :title
       t.text :preview
       t.text :body
-      t.text :url
+      t.string :url
       t.date :release_date
       t.integer :rating
       t.boolean :featured

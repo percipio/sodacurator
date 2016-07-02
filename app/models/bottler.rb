@@ -8,7 +8,7 @@ class Bottler < ActiveRecord::Base
     featured: '1200x600>'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  before_save :downcase_name
+  before_save :downcase_name_url
   validates :name, presence: true,
                    length: { maximum: 144 },
                    uniqueness: { case_sensitive: false }
@@ -16,7 +16,7 @@ class Bottler < ActiveRecord::Base
     names = select(:name_url, :name).order(:name)
   end
 
-  def downcase_name
-    self.name = name.downcase
+  def downcase_name_url
+    self.name_url = name_url.downcase
   end
 end

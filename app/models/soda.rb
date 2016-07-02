@@ -1,6 +1,6 @@
 class Soda < ActiveRecord::Base
   has_many :tagged_soda, dependent: :destroy
-  has_many :tags, through: :tagged_sodas
+  has_many :tags, through: :tagged_soda
   belongs_to :bottler
   has_attached_file :image, styles: {
     thumb: '100x100>',

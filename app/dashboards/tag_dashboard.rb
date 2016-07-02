@@ -8,7 +8,7 @@ class TagDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    tagged_sodas: Field::HasMany,
+    tagged_soda: Field::HasMany,
     sodas: Field::HasMany,
     id: Field::Number,
     title: Field::String,
@@ -30,7 +30,7 @@ class TagDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :title,
-    :tagged_sodas
+    :tagged_soda
   ].freeze
 
   # FORM_ATTRIBUTES

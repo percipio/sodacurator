@@ -1,6 +1,6 @@
 require 'administrate/base_dashboard'
 
-class SodaDashboard < Administrate::BaseDashboard
+class BottlerDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,19 +8,13 @@ class SodaDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    tagged_soda: Field::HasMany,
-    tags: Field::HasMany,
-    bottler: Field::BelongsTo,
+    sodas: Field::HasMany,
     id: Field::Number,
-    title: Field::String,
-    preview: Field::Text,
-    body: Field::Text,
+    name: Field::String,
+    name_url: Field::String,
     url: Field::String,
-    release_date: Field::DateTime,
-    rating: Field::Number,
+    description: Field::Text,
     featured: Field::Boolean,
-    title_url: Field::String,
-    published: Field::Boolean,
     image_file_name: Field::String,
     image_content_type: Field::String,
     image_file_size: Field::Number,
@@ -36,54 +30,44 @@ class SodaDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :tagged_soda,
-    :tags,
-    :bottler,
-    :id
+    :sodas,
+    :id,
+    :name,
+    :name_url
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :tagged_soda,
-    :tags,
-    :bottler,
+    :sodas,
     :id,
-    :title,
-    :preview,
-    :body,
+    :name,
+    :name_url,
     :url,
-    :release_date,
-    :rating,
+    :description,
     :featured,
-    :title_url,
-    :published,
-    :image
+    :image,
+    :created_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :tagged_soda,
-    :tags,
-    :bottler,
-    :title,
-    :preview,
-    :body,
+    :sodas,
+    :name,
+    :name_url,
     :url,
-    :release_date,
-    :rating,
+    :description,
     :featured,
-    :title_url,
-    :published,
     :image
   ].freeze
 
-  # Overwrite this method to customize how sodas are displayed
+  # Overwrite this method to customize how bottlers are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(soda)
-    soda.title.to_s
+  def display_resource(bottler)
+    bottler.name.to_s
   end
 end
