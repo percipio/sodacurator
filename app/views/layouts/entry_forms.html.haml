@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    = full_title
+    %meta{'name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    = csrf_meta_tags
+    = render 'layouts/shim'
+    = render 'layouts/adobe_scripts'
+    = render 'layouts/active_hosted_scripts'
+  %body
+    .wrapper-for-content-outside-of-footer
+      / Header
+      = render 'layouts/header'
+      / Body
+      .inner-wrapper
+        .wrapper-centering
+          = yield
+    / Footer
+    = render 'layouts/footer'
+    = render 'layouts/google_tag'
+    = console if Rails.env.development?

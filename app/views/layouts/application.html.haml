@@ -1,0 +1,27 @@
+!!! 5
+%html
+%head
+  = full_title
+  %meta{'name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'}
+  /[if lte IE 8] <script src="javascripts/ie/html5shiv.js"></script>
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  /[if lte IE 9] <link rel="stylesheet" href="stylesheets/ie9.css" />
+  /[if lte IE 8] <link rel="stylesheet" href="stylesheets/ie8.css" />
+  = csrf_meta_tags
+%body
+  #wrapper
+    / Header
+    = render 'layouts/header'
+
+    / Main
+    #main
+      - if flash
+        = render 'layouts/flashes'
+      = yield
+    = render 'layouts/sidebar'
+= render 'layouts/google_tag'
+- if params[:action] == "soda"
+  = render 'layouts/disqus_script'
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+- if Rails.env.development?
+  - console

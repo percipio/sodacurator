@@ -1,0 +1,23 @@
+= provide(:title, "Sign up")
+.entry-form
+  = render "layouts/flashes"
+  %p
+    Go on! Signing up
+    %strong won't cost you a thing!
+    And you'll get access to some
+    %strong free stuff.
+  %p
+    %strong Like:
+  %ul
+    %li Getting Started Course
+    %li Printable Resources
+    %li Electronic Templates
+    %li And more!
+  = simple_form_for @user do |f|
+    = f.input :name
+    = f.input :email
+    = f.submit "Create my account", class: "button radius"
+
+  %p
+    Already a member?
+    = link_to "Sign In!", signin_path

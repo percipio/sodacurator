@@ -1,0 +1,12 @@
+%body
+  %section
+    %ul.posts
+      - featured_bottler.each do |bottler|
+        %li
+          %article
+            %header
+              %h3= link_to bottler.name, bottler_path(bottler.name_url)
+            - if bottler.image_file_name
+              = link_to image_tag(bottler.image.url(:thumb)), bottler_path(bottler.name_url), class: "image"
+            - else
+              = link_to image_tag("http://lorempixel.com/100/75"), bottler_path(bottler.name_url), class: "image"

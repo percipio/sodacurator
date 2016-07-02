@@ -1,0 +1,36 @@
+%body
+  %header#header
+    %h1= link_to app_name.to_s, root_path
+    %nav.links
+      %ul
+        = render 'layouts/nav_links'
+    %nav.main
+      %ul
+        /
+          <li class="search">
+          <a class="fa-search" href="#search">Search</a>
+          <form id="search" method="get" action="#">
+          <input type="text" name="query" placeholder="Search" />
+          </form>
+          </li>
+        %li.menu
+          %a.fa-bars{:href => "#menu"} Menu
+  / Menu
+  %section#menu
+    / Search
+    /
+      <section>
+      <form class="search" method="get" action="#">
+      <input type="text" name="query" placeholder="Search" />
+      </form>
+      </section>
+    / Links
+    %section
+      %ul.links
+        = render 'layouts/nav_links_full'
+    -if signed_in?
+      / Actions
+      %section
+        %ul.actions.vertical
+          %li
+            = link_to "Sign Out", signout_path, class: "button big fit"

@@ -1,0 +1,12 @@
+%section
+  %ul.posts
+    - featured_sodas.each do |soda|
+      %li
+        %article
+          %header
+            %h3= link_to soda.title, soda_path(soda.title_url)
+            %time.published{:datetime => ""}= format_date(soda.release_date)
+          - if soda.image_file_name
+            = link_to image_tag(soda.image.url(:thumb)), soda_path(soda.title_url), class: "image"
+          - else
+            = link_to image_tag("http://lorempixel.com/100/75"), soda_path(soda.title_url), class: "image"

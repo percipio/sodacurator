@@ -1,0 +1,16 @@
+= provide(:title, @soda.title)
+%article.post
+  %header
+    .title
+      %h2= @soda.title
+    .meta
+      %time.published{:datetime => ""}= format_date(@soda.release_date)
+      = link_to about_path, class: "author" do
+        %span.name=app_name
+        = my_gravatar(80)
+  - if @soda.image_file_name
+    = image_tag(@soda.image.url(:featured), class: "image featured")
+  - else
+    = image_tag("http://lorempixel.com/750/400", class: "image featured")
+  %p= raw(@soda.preview)
+  = render 'sodas/disqus'

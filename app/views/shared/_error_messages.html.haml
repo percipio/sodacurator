@@ -1,0 +1,11 @@
+%body
+  - if @user.errors.any?
+    %section#errors
+      %header
+        %h2
+          Oops! The #{@user.class.name.titleize.downcase} could not be saved.
+        %h3
+          Please correct the following #{pluralize(@user.errors.count, "error")}:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message

@@ -1,0 +1,8 @@
+= provide(:title, "Sign In")
+%article.post
+  = simple_form_for(:session, url: signin_path) do |f|
+    = f.input :email, as: :email
+    = f.input :password, as: :password
+    -# = link_to "(forgot password)", new_password_reset_path
+    = f.input :remember_me, as: :boolean, boolean_style: :inline
+    = f.button :submit, "Sign In", html: { class: "button radius" }

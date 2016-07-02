@@ -1,0 +1,33 @@
+= provide(:title, "Sign Up")
+.entry-form
+  %div
+    %h2 We're almost ready, but not just yet!
+    %p
+      Please fill out the form below and I'll send you an email letting you know when we're going to launch.
+    %p
+      Thanks!
+  %form#_form_31{"accept-charset" => "utf-8", :action => "//joehale.activehosted.com/proc.php", :enctype => "multipart/form-data", :method => "post"}
+    %input{:name => "f", :type => "hidden", :value => "31"}/
+    %input{:name => "s", :type => "hidden", :value => ""}/
+    %input{:name => "c", :type => "hidden", :value => "0"}/
+    %input{:name => "m", :type => "hidden", :value => "0"}/
+    %input{:name => "act", :type => "hidden", :value => "sub"}/
+    %input{:name => "nlbox[]", :type => "hidden", :value => "2"}/
+    ._form
+      .formwrapper
+        #_field95
+          #compile95._field._type_input
+            ._label
+              Full Name
+            ._option
+              %input{:name => "fullname", :type => "text"}/
+        #_field87
+          #compile87._field._type_input
+            ._label
+              Email *
+            ._option
+              %input{:name => "email", :type => "email"}/
+        #_field88
+          #compile88._field._type_input
+            ._option
+              %input{:type => "submit", :value => "Subscribe"}/

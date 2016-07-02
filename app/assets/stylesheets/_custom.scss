@@ -1,0 +1,50 @@
+.meta p.fa {
+    float: left;
+    margin-left: 24% !important;
+    margin-top: -12% !important;
+}
+// map canvas
+#map_canvas {
+    height: 400px;
+    width: 100%;
+}
+#map_canvas img {
+    max-width: none; // to prevent UI control bug
+}
+#map_canvas .content {
+    padding: 0 0.5em 1em;
+}
+#map_canvas .firstHeading {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1em;
+    margin: 0;
+}
+#map_canvas #bodyContent p {
+    font-size: 1em;
+    margin: 0;
+}
+// flashes
+$base-spacing: 1.5em !default;
+$flashes: ( "alert": #fff6bf, "error": #fbe3e4, "notice": #e5edf8, "success": #e6efc2, ) !default;
+@each $flash-type, $color in $flashes {
+    .flash-#{$flash-type} {
+        background-color: $color;
+        color: shade($color, 60%);
+        display: block;
+        margin-bottom: $base-spacing / 2;
+        padding: $base-spacing / 2;
+        text-align: center;
+        a {
+            color: shade($color, 70%);
+            text-decoration: underline;
+            &:focus,
+            &:hover {
+                color: shade($color, 90%);
+            }
+        }
+    }
+}
+.input {
+    margin-bottom: 5px;
+}

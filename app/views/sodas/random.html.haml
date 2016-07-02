@@ -1,0 +1,18 @@
+= provide(:title, "Random Sodas")
+%article.post
+  - if flash
+    = render 'layouts/flashes'
+  %h2 Well That soda doesn't exist, may I suggest one of these?
+  %hr
+  - if @sodas.count == 0
+    %h3 I'm just setting up this space. Check back in a few days.
+  - else
+    - @sodas.each do |soda|
+      %h3
+        = link_to soda.title, soda_path(soda.title_url)
+      - if soda.image_file_name
+        = link_to image_tag(soda.image.url(:thumb)), soda_path(soda.title_url), class: "image"
+      - else
+        = link_to image_tag("http://lorempixel.com/100/75"), soda_path(soda.title_url), class: "image"
+      = raw(soda.preview)
+      = link_to("Read More", soda_path(soda.title_url))

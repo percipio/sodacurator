@@ -1,0 +1,21 @@
+
+development:
+  adapter: postgresql
+  database: sodacurator
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: sodacurator_test
+  pool: 5
+  username:
+  password:
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: db/production
+  pool: 5
+  username:
+  password:

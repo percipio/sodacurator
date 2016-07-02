@@ -1,0 +1,27 @@
+= provide(:title, "Home")
+%h1 Recent Reviews
+- @sodas.each do |soda|
+  %article.post
+    %header
+      .title
+        %h2= link_to soda.title, soda_path(soda.title_url)
+      .meta
+        %time.published{:datetime => ""}= format_date(soda.release_date)
+        = link_to about_path, class: "author" do
+          %span.name=app_name
+          = my_gravatar(80)
+    - if soda.image_file_name
+      = link_to image_tag(soda.image.url(:featured)), soda_path(soda.title_url), class: "image featured"
+    - else
+      = link_to image_tag("http://lorempixel.com/1280/600"), soda_path(soda.title_url), class: "image featured"
+    %p= raw(soda.preview)
+    %footer
+      %ul.actions
+        %li
+          = link_to "Continue Reading", soda_path(soda.title_url), class: "button big"
+/ Pagination
+/
+  <ul class="actions pagination">
+  <li><a href="" class="disabled button big previous">Previous Page</a></li>
+  <li><a href="#" class="button big next">Next Page</a></li>
+  </ul>

@@ -1,0 +1,10 @@
+- provide(:title, "Forgot Password")
+.entry-form
+  = render "layouts/flashes"
+  %h3 Forgot Password
+  = form_for(:password_reset, url: password_resets_path) do |f|
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+    = f.submit "Submit", class: "button radius expand"
+  %p
+    Nevernmind, #{link_to "I remember it!", signin_path}

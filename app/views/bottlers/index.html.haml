@@ -1,0 +1,26 @@
+= provide(:title, "Bottler")
+- @bottlers.each do |bottler|
+  %article.post
+    %header
+      .title
+        %h2= link_to bottler.name, bottler_path(bottler.name_url)
+      .meta
+        = link_to about_path, class: "author" do
+          %span.name=app_name
+          = my_gravatar(80)
+    - if bottler.image_file_name
+      = link_to image_tag(bottler.image.url(:featured)), bottler_path(bottler.name_url), class: "image featured"
+    - else
+      = link_to image_tag("http://lorempixel.com/1280/600"), bottler_path(bottler.name_url), class: "image featured"
+    %p= raw(bottler.description)
+    %footer
+      %ul.actions
+        %li
+          = link_to "Continue Reading", bottler_path(bottler.name_url), class: "button big"
+= paginate @bottlers
+= page_entries_info @bottlers
+-# %ul.actions.pagination
+-# %li
+-#   %a.disabled.button.big.previous{:href => ""} Previous Page
+-# %li
+-#   %a.button.big.next{:href => "#"} Next Page

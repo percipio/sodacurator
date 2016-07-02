@@ -1,0 +1,12 @@
+= provide(:title, "Featured Sodas")
+.article-wrapper
+  - if flash
+    = render 'layouts/flashes'
+  - if @sodas.count == 0
+    %h3 I'm just setting up this space. Check back in a few days.
+  - else
+    - @sodas.each do |soda|
+      %h3
+        = link_to soda.title, soda_show_path(soda.title_url)
+      = truncate_html(soda.body, length: 950, separator: ' ', omission: '...')
+      = link_to("Read More", soda_show_path(soda.title_url))

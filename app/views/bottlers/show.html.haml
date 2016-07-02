@@ -1,0 +1,14 @@
+= provide(:title, @bottler.name)
+%article.posts
+  %header
+    .title
+      %h2= @bottler.name
+    .meta
+      = link_to about_path, class: "author" do
+        %span.name=app_name
+        = my_gravatar(80)
+  - if @bottler.image_file_name
+    = image_tag(@bottler.image.url(:featured), class: "image featured")
+  - else
+    = image_tag("http://lorempixel.com/750/400", class: "image featured")
+  %p= raw(@bottler.description)

@@ -1,0 +1,11 @@
+%body
+  - content_for(:title) { "#{page.page_title}" }
+  %header.header
+    %h1.header__heading= content_for(:title)
+    .header__actions
+      = link_to(                      |
+          "Show",                     |
+          [namespace, page.resource], |
+          class: "button",            |
+        )                             |
+  = render "form", page: page
